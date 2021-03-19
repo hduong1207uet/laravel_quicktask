@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -12,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@index');
 
 Route::resources([
     'posts' => 'PostController',
-    'comments' => 'CommentController'
+    'comments' => 'CommentController',
 ]);
+
+Route::get('lang/{lang}','LangController@changeLang')->name('lang');

@@ -1,0 +1,10 @@
+{ 
+    "Posts" : "Posts",
+    "add_new_post" : "Add new post",
+    "Action" : "Action",
+    "Edit" : "Edit",
+    "Delete" : "Delete",
+    "view_all_comments" : "View all comments",
+    "Title" : "Title",
+    "Author" : "Author"    
+}
