@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostFormRequest;
 use App\Models\Post;
 use App\Models\Comment;
 
@@ -27,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -36,9 +37,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
-        //
+        Post::create($request->all());
+
+        return redirect(route('posts.index'))->with('success', __("post_created"));
     }
 
     /**
@@ -48,8 +51,21 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {       
+        //   
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showMessage($id)
     {
-        //
+        $comments = Post::findOrFail($id)->comments;
+        
+        return view('posts.showMessages', compact('comments'));
     }
 
     /**
@@ -60,7 +76,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -70,9 +88,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostFormRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update([
+            'title' => $request->get('title'),
+            'author' => $request->get('author'),
+        ]);
+        
+        return redirect(route('posts.index'))->with('success', __("post_updated"));
     }
 
     /**
@@ -83,6 +107,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect(route('posts.index'))->with('success', __("post_deleted"));
     }
 }

@@ -3,8 +3,11 @@
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Sun* - QuickTask</title>
-      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
-      <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />  
+      <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+      <script src="{{ asset('js/app.js') }}"></script>
+      
   </head>
   <body>
       <!--language Div-->
@@ -16,6 +19,5 @@
       <div class="container">
             @yield('main')
       </div>
-        <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}" type="text/js"></script>
   </body>
 </html>

@@ -1,4 +1,6 @@
-{
+{ 
+    "Home" : "Trang chủ",
+    "Refresh" : "Làm mới",
     "Posts" : "Bài viết",
     "add_new_post" : "Thêm bài viết",
     "Action" : "Hành động",
@@ -6,5 +8,16 @@
     "Delete" : "Xóa",
     "view_all_comments" : "Xem các bình luận",
     "Title" : "Tiêu đề",
-    "Author" : "Tác giả"
+    "Author" : "Tác giả",
+    "add_post" : "Thêm bài viết",
+    "go_back" : "Quay lại",
+    "do_you_want_to_delete?" : "Bạn có muốn xóa không?",
+    "Comments" : "Bình luận",
+    "add_new_comment" : "Thêm mới bình luận",
+    "Content" : "Nội dung",
+    "no_comment_msg" : "* Bài viết này chưa có bình luận nào.",
+    "update_post" : "Cập nhật bài viết",
+    "post_updated" : "Đã cập nhật bài viết.",
+    "post_created" : "Đã tạo bài viết.",
+    "post_deleted" : "Đã xóa bài viết"   
 }

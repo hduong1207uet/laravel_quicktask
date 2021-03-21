@@ -14,11 +14,13 @@ use App\Http\Controllers\CommentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PostController@index');
+Route::redirect('/', '/posts', 301)->name('home');
+
+Route::get('/posts/showMessage/{id}', 'PostController@showMessage')->name('posts.showMessage');\
+
+Route::get('lang/{lang}','LangController@changeLang')->name('lang');
 
 Route::resources([
     'posts' => 'PostController',
     'comments' => 'CommentController',
 ]);
-
-Route::get('lang/{lang}','LangController@changeLang')->name('lang');
