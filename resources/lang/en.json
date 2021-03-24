@@ -1,4 +1,6 @@
 { 
+    "Home" : "Home",
+    "Refresh" : "Refresh",
     "Posts" : "Posts",
     "add_new_post" : "Add new post",
     "Action" : "Action",
@@ -6,5 +8,16 @@
     "Delete" : "Delete",
     "view_all_comments" : "View all comments",
     "Title" : "Title",
-    "Author" : "Author"    
+    "Author" : "Author",
+    "add_post" : "Add post",
+    "go_back" : "Go back",
+    "do_you_want_to_delete?" : "Do you want to delete?",
+    "Comments" : "Comments",
+    "add_new_comment" : "Add new comment",
+    "Content" : "Content",
+    "no_comment_msg" : "* This post don't have any comments.",
+    "update_post" : "Update post",
+    "post_updated" : "Post updated.",
+    "post_created" : "Post created.",
+    "post_deleted" : "Post deleted."
 }
