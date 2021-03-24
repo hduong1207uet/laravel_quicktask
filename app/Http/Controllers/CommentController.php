@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\PostFormRequest;
+use App\Http\Requests\CommentFormRequest;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\Comment;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $comments = Comment::all();
 
-        return view('posts.index', compact('posts'));
+        return view('comments.index', compact('comments'));
     }
 
     /**
@@ -28,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $postIds = DB::table('posts')->select('id')->get();
+        
+        return view('comments.create' ,compact('postIds'));
     }
 
     /**
@@ -37,11 +40,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostFormRequest $request)
+    public function store(CommentFormRequest $request)
     {
-        Post::create($request->all());
+        Comment::create($request->all());
 
-        return redirect(route('posts.index'))->with('success', __("post_created"));
+        return redirect(route('comments.index'))->with('success', __("comment_created"));
     }
 
     /**
@@ -51,23 +54,21 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {       
-        $post = Post::findOrFail($id);
-        
-        return view('posts.show' ,compact('post'));
+    {
+        //
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified post contain comment.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showMessage($id)
+    public function showPost($id)
     {
-        $comments = Post::findOrFail($id)->comments;
+        $post = Comment::findOrFail($id)->post;
         
-        return view('posts.showMessages', compact('comments'));
+        return view('comments.showPost', compact('post'));
     }
 
     /**
@@ -78,9 +79,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
+        $comment = Comment::findOrFail($id);
+        $postIds = DB::table('posts')->select('id')->get();
 
-        return view('posts.edit', compact('post'));
+        return view('comments.edit', compact(['comment', 'postIds']));
     }
 
     /**
@@ -90,15 +92,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostFormRequest $request, $id)
+    public function update(CommentFormRequest $request, $id)
     {
-        $post = Post::findOrFail($id);
-        $post->update([
-            'title' => $request->get('title'),
-            'author' => $request->get('author'),
+        $comment = Comment::findOrFail($id);
+        $comment->update([
+            'author' => $request->author,
+            'content' => $request->content,
+            'post_id' => $request->post_id,
         ]);
         
-        return redirect(route('posts.index'))->with('success', __("post_updated"));
+        return redirect(route('comments.index'))->with('success', __("comment_updated"));
     }
 
     /**
@@ -109,9 +112,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $post->delete();
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
 
-        return redirect(route('posts.index'))->with('success', __("post_deleted"));
+        return redirect(route('comments.index'))->with('success', __("comment_deleted"));
     }
 }

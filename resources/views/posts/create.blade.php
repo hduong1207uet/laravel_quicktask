@@ -21,7 +21,7 @@
         </div>
         
         <button type="submit" class="btn btn-primary">{{ __("add_post") }}</button>  
-        <button id="btn_go_back" type="button"  class="btn btn-danger" >{{ __("go_back") }}</button>   
+        <button id="btn_go_back" type="button"  class="btn_go_back btn btn-danger" >{{ __("go_back") }}</button>   
     </form>
 </div>
 @endsection

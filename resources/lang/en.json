@@ -19,5 +19,14 @@
     "update_post" : "Update post",
     "post_updated" : "Post updated.",
     "post_created" : "Post created.",
-    "post_deleted" : "Post deleted."
+    "post_deleted" : "Post deleted.",
+    "post_id" : "Post ID",
+    "view_post" : "View post",
+    "comment_updated" : "Comment updated.",
+    "comment_created" : "Comment created.",
+    "comment_deleted" : "Comment deleted.",
+    "update_comment" : "Update comment",
+    "view_all_posts" : "View all posts",
+    "parent_post" : "Parent Post",
+    "view_all_comments_of_post" : "View all comments of post"
 }

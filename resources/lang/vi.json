@@ -19,5 +19,14 @@
     "update_post" : "Cập nhật bài viết",
     "post_updated" : "Đã cập nhật bài viết.",
     "post_created" : "Đã tạo bài viết.",
-    "post_deleted" : "Đã xóa bài viết"   
+    "post_deleted" : "Đã xóa bài viết",
+    "post_id" : "ID bài viết",
+    "view_post" : "Xem bài viết",
+    "comment_updated" : "Đã cập nhật bình luận.",
+    "comment_created" : "Đã tạo mới bình luận.",
+    "comment_deleted" : "Đã xóa bình luận.",
+    "update_comment" : "Cập nhật bình luận",
+    "view_all_posts" : "Xem tất cả bài viết",
+    "parent_post" : "Bài viết cha",
+    "view_all_comments_of_post" : "Xem tất cả bình luận của bài viết"
 }
