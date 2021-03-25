@@ -16,7 +16,7 @@ use App\Http\Controllers\CommentController;
 */
 Route::redirect('/', '/posts', 301)->name('home');
 
-Route::get('/posts/showMessage/{id}', 'PostController@showMessage')->name('posts.showMessage');\
+Route::get('/posts/show-message/{id}', 'PostController@showMessage')->name('posts.show_message');
 
 Route::get('lang/{lang}','LangController@changeLang')->name('lang');
 

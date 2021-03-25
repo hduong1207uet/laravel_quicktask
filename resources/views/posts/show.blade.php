@@ -6,9 +6,8 @@
          @include('messages.alert')  
     </div>
     <div class="col-sm-12"> 
-        <h1 class="display-3">{{ __("Posts") }}</h1>
-        <a href="{{ route('posts.create') }}"><button type="button" class="btn btn-success" id="btn-add">{{ __("add_new_post") }}</button></a>
-        <a href="{{ route('comments.index') }}"><button type="button" class="btn btn-success">{{ __("view_all_comments") }}</button></a>
+        <h1 class="display-3">{{ __("parent_post") }}</h1>
+        <a href="{{ route('posts.index') }}"><button type="button" class="btn btn-success" id="btn-add">{{ __("view_all_posts") }}</button></a>
         <button type="button" class="btn_reload btn btn-danger">{{ __("Refresh") }}</button>
         <!--Table of Posts-->
         <table class="table table-striped table-bordered">
@@ -21,7 +20,6 @@
                 <tr>
             <thead>
             <tbody>
-                @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
@@ -37,10 +35,9 @@
                         </form>
                     </td>
                     <td>
-                        <a href="{{ route('posts.show_message', $post->id) }}" class="btn btn-primary btn-sm">{{ __("view_all_comments") }}</a>
+                        <a href="{{ route('posts.showMessage', $post->id) }}" class="btn btn-primary btn-sm">{{ __("view_all_comments") }}</a>
                     </td>
                 </tr>
-                @endforeach
             </tbody>
         </table> 
     </div>
